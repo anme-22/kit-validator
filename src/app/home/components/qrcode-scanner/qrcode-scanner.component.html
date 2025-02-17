@@ -1,0 +1,4 @@
+<button (click)="startScanner()" *ngIf="!isScanning">Iniciar Escaneo</button>
+<div id="reader"></div>
+<p *ngIf="scanResult">Resultado: {{ scanResult }}</p>
+<button (click)="stopScanning()" *ngIf="isScanning">Detener Escaneo</button>

@@ -1,0 +1,31 @@
+
+@layer tailwind-base, primeng, tailwind-utilities;
+@import "primeicons/primeicons.css";
+
+@layer tailwind-base {
+@tailwind base;
+}
+
+@layer tailwind-utilities {
+@tailwind components;
+@tailwind utilities;
+}
+
+.p-error {
+    color: #e24c4c;
+  }
+
+.ng-dirty.ng-invalid {
+    border-color: #e24c4c;
+}
+
+.ng-dirty.ng-invalid:focus{
+    ring-color: #e24c4c;
+    ring-width: 2px;
+}
+
+@media (max-width: 640px) {
+    .p-toast {
+      max-width: 90%;
+    }
+}
