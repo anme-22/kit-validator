@@ -1,0 +1,17 @@
+<div class="w-full">
+  <p-card class="w-full">
+    <ng-template pTemplate="title">
+      <h2 class="text-center">Instrucciones para el scaneo de código</h2>
+    </ng-template>
+    <ng-template pTemplate="content">
+      <p-carousel [value]="images" [numVisible]="1" [responsiveOptions]="responsiveOptions" class="w-full"> 
+        <ng-template pTemplate="item" let-image>
+          <div class="flex justify-center w-full">
+            <img [src]="image.url" [alt]="image.description" class="max-w-full h-auto"> 
+          </div>
+          <div class="description text-center mt-2 px-10">{{ image.description }}</div>
+        </ng-template>
+      </p-carousel>
+    </ng-template>
+  </p-card>
+</div>

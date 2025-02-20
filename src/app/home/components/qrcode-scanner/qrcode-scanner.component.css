@@ -1,0 +1,32 @@
+/* qrcode-scanner.component.css */
+#reader {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  overflow: hidden; /* Importante: oculta la línea cuando se sale del contenedor */
+}
+
+#reader::after {
+  content: "";
+  position: absolute; 
+  top: 0; /* Comienza desde la parte superior */
+  left: 0;
+  width: 100%;
+  height: 5px; /* Grosor de la línea */
+  background: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0)); /* Degradado para el efecto */
+  animation: scanline 2s linear infinite;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-5px); /* Comienza justo encima del borde superior */
+    opacity: 0; /* Empieza sin opacidad */
+  }
+  50% {
+    opacity: 1; /* Aumenta la opacidad en el centro */
+  }
+  100% {
+    transform: translateY(calc(100% + 240px)); /* Termina justo debajo del borde inferior */
+    opacity: 0; /* Vuelve a desaparecer */
+  }
+}

@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 
 import {Html5QrcodeScanner} from "html5-qrcode";
 import {Html5Qrcode} from "html5-qrcode";
+import { PrimengModule } from '../../../shared/primeng/primeng.module';
 @Component({
   selector: 'app-qrcode-scanner',
-  imports: [CommonModule],
+  imports: [CommonModule, PrimengModule],
   templateUrl: './qrcode-scanner.component.html',
   styleUrl: './qrcode-scanner.component.css'
 })
@@ -21,28 +22,30 @@ export class QrcodeScannerComponent implements  OnDestroy {
 
 
   startScanner() {
-    this.html5QrCode = new Html5Qrcode("reader"); // Asigna la instancia a la variable de clase
-  
-    this.html5QrCode.start(
-      { facingMode: "environment" }, // Usa la cámara trasera
-      { fps: 10, qrbox: { width: 250, height: 250 } },
-      (decodedText) => {
-        console.log("Resultado:", decodedText);
-        this.scanResult = decodedText; // Guarda el resultado escaneado
-        this.stopScanning(); // Detener el escáner después de escanear
-      },
-      (error) => console.error(error)
-    );
-  
-    this.isScanning = true; // Marca que el escaneo está en curso
+    this.isScanning = true;
+    setTimeout(() => {
+      this.html5QrCode = new Html5Qrcode("reader");
+      this.html5QrCode.start(
+        { facingMode: "environment" },
+        { fps: 10, qrbox: { width: 250, height: 250 } },
+        (decodedText) => {
+          console.log("Resultado:", decodedText);
+          this.scanResult = decodedText;
+          this.stopScanning();
+        },
+        (error) => console.error(error)
+      );
+    }); // Marca que el escaneo está en curso
   }
 
   stopScanning() {
     if (this.html5QrCode) {
       this.html5QrCode.stop().then(() => {
         console.log("Escaneo detenido");
-        this.isScanning = false;
+        this.isScanning = false; // Ocultar el div#reader DESPUÉS de detener el escaneo
       }).catch(err => console.error("Error al detener el escáner:", err));
+    } else {
+      this.isScanning = false; // Asegurarse de que isScanning sea false si html5QrCode no está inicializado
     }
   }
 }

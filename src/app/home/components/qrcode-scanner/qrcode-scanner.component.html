@@ -1,4 +1,21 @@
-<button (click)="startScanner()" *ngIf="!isScanning">Iniciar Escaneo</button>
-<div id="reader"></div>
-<p *ngIf="scanResult">Resultado: {{ scanResult }}</p>
-<button (click)="stopScanning()" *ngIf="isScanning">Detener Escaneo</button>
+
+    <div class="w-full">
+        <p-card class="w-full">
+            <ng-template pTemplate="title">
+                <h2 class="text-center">Escáner de código QR</h2>
+            </ng-template>
+            <ng-template pTemplate="content">
+                <div class="flex justify-center mb-4" *ngIf="!isScanning">
+                    <img src="../../../../assets/img/qrImg.png" alt="QR Image" >
+                </div>
+                <div class="flex justify-center mb-4">
+                    <p-button (click)="startScanner()" *ngIf="!isScanning" styleClass="">Iniciar Escaneo</p-button>
+                    <div id="reader" class="flex justify-center mb-4" *ngIf="isScanning" ></div>
+                </div>
+                <p *ngIf="scanResult" class="text-center">Resultado: {{ scanResult }}</p>
+                <div class="flex justify-center">
+                    <p-button (click)="stopScanning()" *ngIf="isScanning" label="Detener Escaneo"></p-button>
+                </div>
+            </ng-template>
+        </p-card>
+    </div>
