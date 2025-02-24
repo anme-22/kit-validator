@@ -1,19 +1,26 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { PrimeNG } from 'primeng/config';
-import Aura from '@primeng/themes/aura';
-import { PrimengModule } from './shared/primeng/primeng.module';
+import { Router } from '@angular/router';
 import { Toast } from 'primeng/toast';
+import { MenuComponent } from './shared/components/menu/menu.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Toast],
+  imports: [RouterOutlet, Toast, MenuComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  standalone: true
+  standalone: true,
 })
 export class AppComponent {
+  showMenu = true;
   title = 'kit-validator-platform-frontend';
-  constructor( private primeng: PrimeNG) {
+
+  constructor(private primeng: PrimeNG, private router: Router) {
+    this.router.events.subscribe(() => {
+      // Oculta el menú solo en la ruta "/login"
+      this.showMenu = this.router.url !== '/auth';
+    });
   }
 }

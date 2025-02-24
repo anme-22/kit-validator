@@ -1,13 +1,11 @@
-<div class="min-h-screen flex items-center justify-center">
-  <div class="mx-auto p-4 w-full max-w-md">  <app-instructions-carousel class="w-full" *ngIf="showInstructions"></app-instructions-carousel>
-    <app-qrcode-scanner class="w-full" *ngIf="showQRCodeScanner"></app-qrcode-scanner>
+<div class="min-h-screen flex flex-col">
+  <!-- Contenido dinámico de las páginas -->
+  <div class="flex-1">
+    <router-outlet></router-outlet>
+  </div>
 
-    <div class="flex justify-center mt-10 w-full" *ngIf="showInstructions"> <p-button styleClass="px-10" (click)="next()">Siguiente</p-button>
-    </div>
-
-    <div class="absolute top-4 right-4" *ngIf="showQRCodeScanner">
-      <button pButton type="button" icon="pi pi-question-circle" (click)="showHelp()" class="p-button-rounded p-button-help"></button>
-    </div>
-
+  <!-- Menú fijo en la parte inferior (se oculta en Login) -->
+  <div class="fixed bottom-0 w-full">
+    <app-menu></app-menu>
   </div>
 </div>
