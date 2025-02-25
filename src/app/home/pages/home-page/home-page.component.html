@@ -1,11 +1,11 @@
 <div class="min-h-screen flex flex-col">
   <!-- Contenido dinámico de las páginas -->
-  <div class="flex-1">
+  <div class="flex-1 overflow-auto">
     <router-outlet></router-outlet>
   </div>
 
-  <!-- Menú fijo en la parte inferior (se oculta en Login) -->
-  <div class="fixed bottom-0 w-full">
+  <!-- Menú fijo en la parte inferior -->
+  <div class="mt-auto w-full">
     <app-menu></app-menu>
   </div>
 </div>

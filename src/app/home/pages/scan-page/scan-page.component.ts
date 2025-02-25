@@ -5,6 +5,7 @@ import { MenuComponent } from '../../../shared/components/menu/menu.component';
 import { InstructionsCarouselComponent } from '../../components/instructions-carousel/instructions-carousel.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-scan-page',
@@ -22,6 +23,9 @@ export class ScanPageComponent {
   showInstructions = true; // Variable para controlar la visibilidad de las instrucciones
   showQRCodeScanner = false; // Variable para controlar la visibilidad del escáner QR
   showHelpButton = false; // Variable para controlar la visibilidad del botón de ayuda
+  username!: string;
+
+  constructor(private _authService: AuthService) {}
 
   ngAfterViewInit() {
     // Mostrar el botón de ayuda solo cuando se muestra el escáner QR
@@ -32,6 +36,17 @@ export class ScanPageComponent {
       this.showHelpButton = qrScannerElement?.offsetParent !== null; // Verifica si el elemento está visible
     });
     observer.observe(document.body, { childList: true, subtree: true });
+  }
+
+  ngOnInit() {
+    this.setUsername();
+  }
+
+  setUsername() {
+    const userInfo = this._authService.getUserInfo();
+    const firstName = userInfo.nombre.trim().split(' ')[0];
+    const lastName = userInfo.apellido.trim().split(' ')[0];
+    this.username = `${firstName} ${lastName}`;
   }
 
   next() {

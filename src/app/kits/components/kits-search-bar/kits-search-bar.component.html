@@ -1,0 +1,13 @@
+<div class="mb-4 relative">
+  <p-iconField class="w-full">
+    <p-inputicon styleClass="pi pi-search" />
+    <input
+      type="text"
+      pInputText
+      [(ngModel)]="searchText"
+      (input)="search(searchText)"
+      placeholder="Buscar..."
+      class="w-full border border-gray-300 rounded-lg focus:ring focus:ring-gob-500/50 focus:border-gob-500"
+    />
+  </p-iconField>
+</div>

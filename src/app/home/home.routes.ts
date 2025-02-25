@@ -16,6 +16,13 @@ export const homeRoutes: Routes = [
       ),
   },
   {
+    path: 'kits-delivered',
+    loadComponent: () =>
+      import('../kits/pages/kits-delivered/kits-delivered.component').then(
+        (c) => c.KitsDeliveredComponent
+      ),
+  },
+  {
     path: '',
     redirectTo: 'scan',
     pathMatch: 'full',

@@ -1,0 +1,45 @@
+<p-table
+  #dt
+  [value]="data"
+  [paginator]="true"
+  [rows]="5"
+  [rowsPerPageOptions]="[5, 10, 20]"
+  [globalFilterFields]="['id', 'nombre', 'telefono']"
+  styleClass="p-datatable-sm p-datatable-responsive-stack"
+  [tableStyle]="{ 'min-width': '100%' }"
+  responsiveLayout="stack"
+>
+  <ng-template pTemplate="header">
+    <tr class="bg-gob-500 text-white">
+      <th class="text-left">ID</th>
+      <th class="text-left">Nombre</th>
+      <th class="text-left">Teléfono</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-persona>
+    <tr class="border-b hover:bg-gray-50">
+      <td>
+        <span class="p-column-title font-bold">ID</span>
+        {{ persona.id }}
+      </td>
+      <td>
+        <span class="p-column-title font-bold">Nombre</span>
+        {{ persona.nombre }}
+      </td>
+      <td>
+        <span class="p-column-title font-bold">Teléfono</span>
+        {{ persona.telefono }}
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="3" class="text-center p-4">No se encontraron registros.</td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="paginatorleft">
+    <div class="text-sm text-gray-600">
+      Total de registros: {{ data.length }}
+    </div>
+  </ng-template>
+</p-table>

@@ -1,6 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { PrimengModule } from '../../../shared/primeng/primeng.module';
 import { Icredentials } from '../../../shared/interfaces/user.interface';
 import { AuthService } from '../../services/auth.service';
@@ -10,52 +15,58 @@ import { CookieManagementService } from '../../services/cookie-management.servic
 import { Router } from '@angular/router';
 import { ToastService } from '../../../shared/services/toast.service';
 
-
-
 @Component({
   selector: 'app-login-form',
   imports: [ReactiveFormsModule, PrimengModule, CommonModule],
   templateUrl: './login-form.component.html',
-  styleUrl: './login-form.component.css'
+  styleUrl: './login-form.component.css',
 })
 export class LoginFormComponent {
-  public isLoading: boolean = false
+  public isLoading: boolean = false;
   public loginForm!: FormGroup;
-  protected loginSubscription!: Subscription
-  protected redirectTo: string = ''
-  
+  protected loginSubscription!: Subscription;
+  protected redirectTo: string = '';
+
   constructor(
     private _fb: FormBuilder,
     private _authService: AuthService,
     private _cookieService: CookieManagementService,
     private _router: Router,
     private _toastService: ToastService
-  ) { }
-  
-  get isEmptyEmail(){
-    return this.loginForm.get('username')?.touched && this.loginForm.get('username')?.hasError('required');
+  ) {}
+
+  get isEmptyEmail() {
+    return (
+      this.loginForm.get('username')?.touched &&
+      this.loginForm.get('username')?.hasError('required')
+    );
   }
 
-  get isInvalidEmailFormat(){
-    return this.loginForm.get('username')?.touched && this.loginForm.get('username')?.hasError('username');
-  }
-  
-  get isEmptyPassword(){
-    return this.loginForm.get('password')?.touched && this.loginForm.get('password')?.hasError('required')
+  get isInvalidEmailFormat() {
+    return (
+      this.loginForm.get('username')?.touched &&
+      this.loginForm.get('username')?.hasError('username')
+    );
   }
 
+  get isEmptyPassword() {
+    return (
+      this.loginForm.get('password')?.touched &&
+      this.loginForm.get('password')?.hasError('required')
+    );
+  }
 
   onSubmit() {
     if (this.loginForm.valid) {
       this.isLoading = true;
       const data: Icredentials = this.loginForm.value;
       console.log('Data:', data);
-      
-      this.loginSubscription = this._authService.login(data)
-        .pipe(finalize(() => this.isLoading = false))
+
+      this.loginSubscription = this._authService
+        .login(data)
+        .pipe(finalize(() => (this.isLoading = false)))
         .subscribe({
           next: (res) => {
-            console.log(res);
             if (this.canAccess(res.token)) {
               this._cookieService.setCookie('token', res.token);
               console.log('Login success');
@@ -66,7 +77,7 @@ export class LoginFormComponent {
               this._toastService.show({
                 summary: 'Error permisos de usuario',
                 detail: 'No tienes los permisos para acceder a este módulo',
-                severity: 'error'
+                severity: 'error',
               });
             }
           },
@@ -74,32 +85,31 @@ export class LoginFormComponent {
             this._toastService.show({
               summary: 'Error al iniciar sesión',
               detail: 'Usuario ó contraseña incorrectos',
-              severity: 'error'
-            })
-          }
+              severity: 'error',
+            });
+          },
         });
     }
   }
-  
-  canAccess(token: string){
+
+  canAccess(token: string) {
     const system = this._authService.parseJWT(token).sistemas;
-    
-    if(system.length){
-      return Methods.getRolOfThisSystem(system)
+
+    if (system.length) {
+      return Methods.getRolOfThisSystem(system);
     } else {
-      return null
+      return null;
     }
   }
-  
+
   ngOnInit(): void {
     this.initForm();
   }
-  
-  initForm(){
+
+  initForm() {
     this.loginForm = this._fb.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
-    })
+      password: ['', Validators.required],
+    });
   }
-  
 }
