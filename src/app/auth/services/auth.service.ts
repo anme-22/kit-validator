@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Icredentials } from '../../shared/interfaces/user.interface';
-import { environment } from '../../../environments/environment';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {
+  changePassword,
+  Icredentials,
+} from '../../shared/interfaces/user.interface';
+import { environment } from '../../../environments/environment.development';
 import { CookieManagementService } from './cookie-management.service';
 
 @Injectable({
@@ -9,6 +12,7 @@ import { CookieManagementService } from './cookie-management.service';
 })
 export class AuthService {
   public profileInfo!: any;
+  public token!: string;
 
   constructor(
     private http: HttpClient,
@@ -39,5 +43,23 @@ export class AuthService {
       `${environment.apiGeneralUrl}/auth/login`,
       credentials
     );
+  }
+
+  public changePassword(passwords: changePassword) {
+    return this.http.post(
+      `${environment.apiGeneralUrl}/auth/modify-password`,
+      passwords
+    );
+  }
+
+  public getToken(): string | null {
+    return this._cookieService.getCookie('token');
+  }
+
+  public isTokenExpired(token: string): boolean {
+    const payload = this.parseJWT(token).exp;
+    const currentTime = Math.floor(Date.now() / 1000);
+
+    return payload < currentTime;
   }
 }

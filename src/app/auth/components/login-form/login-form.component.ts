@@ -35,6 +35,20 @@ export class LoginFormComponent {
     private _toastService: ToastService
   ) {}
 
+  initForm() {
+    this.loginForm = this._fb.group({
+      username: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(13),
+          Validators.pattern(/^[0-9]+$/),
+        ],
+      ],
+      password: ['', Validators.required],
+    });
+  }
+
   get isEmptyEmail() {
     return (
       this.loginForm.get('username')?.touched &&
@@ -45,7 +59,7 @@ export class LoginFormComponent {
   get isInvalidEmailFormat() {
     return (
       this.loginForm.get('username')?.touched &&
-      this.loginForm.get('username')?.hasError('username')
+      this.loginForm.get('username')?.hasError('minlength')
     );
   }
 
@@ -104,12 +118,5 @@ export class LoginFormComponent {
 
   ngOnInit(): void {
     this.initForm();
-  }
-
-  initForm() {
-    this.loginForm = this._fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-    });
   }
 }

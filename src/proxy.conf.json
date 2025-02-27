@@ -1,0 +1,17 @@
+{
+  "/api": {
+    "target": "http://192.168.194.84:3300",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/general": {
+    "target": "http://192.168.194.84:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/general": "/api"
+    },
+    "logLevel": "debug"
+  }
+}

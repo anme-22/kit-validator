@@ -8,6 +8,8 @@ import { CarouselModule } from 'primeng/carousel';
 import { TableModule } from 'primeng/table';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
 
 @NgModule({
   exports: [
@@ -20,6 +22,8 @@ import { InputIconModule } from 'primeng/inputicon';
     TableModule,
     IconFieldModule,
     InputIconModule,
+    InputSwitchModule,
+    DynamicDialogModule,
   ],
 })
 export class PrimengModule {}

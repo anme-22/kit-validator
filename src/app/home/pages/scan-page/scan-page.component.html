@@ -1,10 +1,10 @@
 <div class="flex flex-col min-h-screen">
-  <div class="p-4 bg-gob-500 text-white top-0 fixed inset-x-0">
+  <div class="p-4 bg-gob-500 text-white">
     <h2 class="text-xl font-semibold">
       Bienvenido {{ this.username | titlecase }}
     </h2>
   </div>
-  <div class="flex-grow flex items-center justify-center">
+  <div class="flex-grow flex">
     <div class="mx-auto p-4 w-full max-w-md">
       <app-instructions-carousel
         class="w-full"
@@ -25,7 +25,7 @@
           type="button"
           icon="pi pi-question-circle"
           (click)="showHelp()"
-          class="p-button-rounded p-button-help"
+          class="bg-gob-600 border-white p-button-rounded p-button-help"
         ></button>
       </div>
     </div>

@@ -1,0 +1,46 @@
+<div class="flex flex-col min-h-screen pb-20">
+  <div class="p-4 bg-gob-500 text-white">
+    <h2 class="text-xl font-semibold">Settings</h2>
+  </div>
+
+  <div class="px-2 divide-y divide-gray-200 dark:divide-gray-700">
+    <!-- Theme Option -->
+    <div class="py-4 flex justify-between items-center">
+      <div class="flex items-center">
+        <i class="pi pi-sun mr-3 text-gob-500 dark:text-gob-500"></i>
+        <span class="font-medium text-gob-500">Tema</span>
+      </div>
+      <p-inputSwitch
+        (onChange)="toggleTheme()"
+        styleClass="custom-switch"
+      ></p-inputSwitch>
+    </div>
+
+    <!-- Change Password -->
+    <div
+      class="py-4 flex justify-between items-center cursor-pointer"
+      (click)="changePassword()"
+    >
+      <div class="flex items-center">
+        <i class="pi pi-lock mr-3 text-gob-500 dark:text-gob-500"></i>
+        <span class="font-medium text-gob-500">Cambiar contraseña</span>
+      </div>
+      <i class="pi pi-chevron-right text-gob-500 dark:text-gob-500"></i>
+    </div>
+
+    <!-- Logout -->
+    <div
+      class="py-4 flex justify-between items-center cursor-pointer"
+      (click)="logout()"
+    >
+      <div class="flex items-center">
+        <i class="pi pi-sign-out mr-3 text-gob-500"></i>
+        <span class="font-medium text-gob-500">Cerrar sesión</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-auto text-center text-gray-500 dark:text-gray-400 text-sm">
+    App Version 1.0.0
+  </div>
+</div>
