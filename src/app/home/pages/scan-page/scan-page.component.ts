@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { PrimengModule } from '../../../shared/primeng/primeng.module';
 import { QrcodeScannerComponent } from '../../components/qrcode-scanner/qrcode-scanner.component';
-import { MenuComponent } from '../../../shared/components/menu/menu.component';
 import { InstructionsCarouselComponent } from '../../components/instructions-carousel/instructions-carousel.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -20,9 +19,9 @@ import { AuthService } from '../../../auth/services/auth.service';
   styleUrl: './scan-page.component.css',
 })
 export class ScanPageComponent {
-  showInstructions = true; // Variable para controlar la visibilidad de las instrucciones
-  showQRCodeScanner = false; // Variable para controlar la visibilidad del escáner QR
-  showHelpButton = false; // Variable para controlar la visibilidad del botón de ayuda
+  showInstructions = false; // Variable para controlar la visibilidad de las instrucciones
+  showQRCodeScanner = true; // Variable para controlar la visibilidad del escáner QR
+  showHelpButton = true; // Variable para controlar la visibilidad del botón de ayuda
   username!: string;
 
   constructor(private _authService: AuthService) {}

@@ -26,6 +26,7 @@ export class LoginFormComponent {
   public loginForm!: FormGroup;
   protected loginSubscription!: Subscription;
   protected redirectTo: string = '';
+  showPassword = false;
 
   constructor(
     private _fb: FormBuilder,
@@ -104,6 +105,10 @@ export class LoginFormComponent {
           },
         });
     }
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 
   canAccess(token: string) {
