@@ -1,9 +1,37 @@
-<main class="flex min-h-screen justify-center items-center">
-    <section class="w-full">
-        <div class="flex justify-center">
-            <img src="/assets/img/sis.png" alt="SISLogo" style="width: 120px; height: 120px;"  >
-        </div>
-        <h2 class="font-semibold  flex justify-center text-xl">Bienvenido al SIS</h2>
-        <app-login-form></app-login-form>
-    </section>
+<main
+  class="h-screen overflow-hidden flex flex-col items-center justify-center md:grid md:grid-cols-2 md:grid-rows-[1fr_auto]"
+>
+  <section class="hidden md:flex md:w-full md:p-4 justify-center h-full">
+    <div class="flex items-center justify-center w-full">
+      <img
+        src="../../../../assets/img/senprende_blanco.png"
+        alt="senprende-logo"
+      />
+    </div>
+  </section>
+
+  <!-- Sección siempre visible, centrada en mobile y en su mitad en pantallas grandes -->
+  <section class="h-full md:grid justify-items-center content-center w-full">
+    <div class="flex justify-center">
+      <img src="/assets/img/sis.png" alt="SISLogo" class="w-28 h-28" />
+    </div>
+    <h2 class="font-semibold text-xl text-center">Bienvenido al SIS</h2>
+    <app-login-form class="block w-full md:max-w-96"></app-login-form>
+  </section>
+  <footer
+    class="md:border-t md:border-gob-500 md:py-4 md:flex md:gap-8 md:overflow-hidden md:whitespace-nowrap md:justify-center md:items-center md:col-span-2 max-md:hidden"
+  >
+    <!-- Contenido aquí -->
+
+    <ng-container
+      *ngFor="let item of [1, 2, 3, 4, 5, 6, 7, 8, 9]; let i = index"
+    >
+      <span>Sistema Integral de Servicios</span>
+      <img
+        src="../../../../assets/icons/sis.png"
+        alt="sis-logo"
+        class="max-w-16"
+      />
+    </ng-container>
+  </footer>
 </main>

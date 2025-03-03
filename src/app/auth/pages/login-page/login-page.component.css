@@ -1,0 +1,16 @@
+main section:first-of-type div {
+  border-radius: 1rem;
+  background-color: var(--primary-color);
+  display: grid;
+  place-items: center;
+  height: 100%;
+  background-image: url("../../../../assets/img/guacamaya-extendida.jpg");
+  background-color: rgba(255, 119, 119, 0.5);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+
+main section:first-of-type div img {
+  width: 256px;
+}
