@@ -1,12 +1,12 @@
 {
   "/api": {
-    "target": "http://172.16.4.162:3300",
+    "target": "https://z8dcpf02-3300.use2.devtunnels.ms/",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
   },
   "/general": {
-    "target": "http://172.16.4.162:3000",
+    "target": "https://z8dcpf02-3000.use2.devtunnels.ms/",
     "secure": false,
     "changeOrigin": true,
     "pathRewrite": {

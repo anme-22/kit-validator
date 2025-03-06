@@ -32,3 +32,62 @@
 :host {
   font-family: Inter, Roboto, sans-serif;
 }
+
+/*DARK THEME SECTION START*/
+/* Tu archivo CSS (o SCSS) */
+
+body.dark-theme {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-theme .bg-white {
+  background-color: #121212; /* Tono oscuro para el verde */
+  color: #a7f3d0;
+}
+
+body.dark-theme p-card {
+  background-color: #1f2937; /* Fondo oscuro para las tarjetas */
+  color: #e0e0e0;
+}
+body.dark-theme .p-card {
+  background-color: #1f2937; /* Fondo oscuro para las tarjetas */
+  color: #e0e0e0;
+}
+
+body.dark-theme .bg-green-100 {
+  background-color: #1a362e; /* Tono oscuro para el verde */
+  color: #a7f3d0;
+}
+
+body.dark-theme .bg-purple-100 {
+  background-color: #2f1e3a; /* Tono oscuro para el morado */
+  color: #d8b4fe;
+}
+
+body.dark-theme .text-gray-600,
+body.dark-theme .text-gray-700 {
+  color: #a0a0a0; /* Textos grises más claros */
+}
+
+body.dark-theme .bg-gray-100 {
+  background-color: #374151; /* Tono oscuro para el gris */
+  color: #d1d5db;
+}
+
+body.dark-theme .border-gob-500,
+body.dark-theme .text-gob-500 {
+  border-color: #9ca3af;
+  color: #9ca3af;
+}
+
+body.dark-theme .bg-gob-500 {
+  background-color: #4b5563;
+}
+
+body.dark-theme .bg-red-500 {
+  background-color: #9f1239;
+}
+
+/* Ajusta otros estilos según sea necesario */
+/*DARK THEME SECTION END*/

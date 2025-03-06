@@ -10,6 +10,9 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { PanelMenuModule } from 'primeng/panelmenu';
+import { SidebarModule } from 'primeng/sidebar';
+import { ToggleSwitchModule } from 'primeng/toggleswitch';
 
 @NgModule({
   exports: [
@@ -24,6 +27,9 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
     InputIconModule,
     InputSwitchModule,
     DynamicDialogModule,
+    PanelMenuModule,
+    SidebarModule,
+    ToggleSwitchModule,
   ],
 })
 export class PrimengModule {}

@@ -1,11 +1,18 @@
-<div class="min-h-screen flex flex-col">
-  <!-- Contenido dinámico de las páginas -->
-  <div class="flex-1 overflow-auto">
-    <router-outlet></router-outlet>
+<ng-container *ngIf="isHandset$ | async; else desktopTemplate">
+  <!-- Vista móvil -->
+  <div class="min-h-screen flex flex-col">
+    <div class="flex-1 overflow-auto">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="mt-auto w-full">
+      <app-menu></app-menu>
+    </div>
   </div>
+</ng-container>
 
-  <!-- Menú fijo en la parte inferior -->
-  <div class="mt-auto w-full">
-    <app-menu></app-menu>
-  </div>
-</div>
+<ng-template #desktopTemplate>
+  <!-- Vista de escritorio -->
+  <app-sidebar-menu>
+    <router-outlet></router-outlet>
+  </app-sidebar-menu>
+</ng-template>

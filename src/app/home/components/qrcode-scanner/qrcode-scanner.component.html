@@ -1,17 +1,21 @@
 <div class="w-full">
   <p-card class="block w-full mb-4">
     <ng-template pTemplate="title">
-      <h2 class="text-center font-medium">Resumen del mes</h2>
+      <h2 class="text-center font-medium md:text-3xl">Resumen del mes</h2>
     </ng-template>
     <ng-template pTemplate="content">
       <div class="flex justify-between">
-        <div class="bg-green-100 rounded-md flex-1 p-3 mr-2 text-center">
-          <div class="text-3xl font-bold">15</div>
-          <div class="pt-2 text-gray-600 text-sm">Escaneados en el mes</div>
+        <div
+          class="bg-green-100 rounded-md flex-1 p-3 mr-2 text-center md:py-12"
+        >
+          <div class="text-3xl font-bold md:text-5xl">15</div>
+          <div class="pt-2 text-gray-600 text-sm md:text-2xl">
+            Escaneados en el mes
+          </div>
         </div>
-        <div class="bg-purple-100 p-3 rounded-md flex-1 text-center">
-          <div class="text-3xl font-bold">8</div>
-          <div class="pt-2 text-gray-600 text-sm">Por entregar</div>
+        <div class="bg-purple-100 p-3 rounded-md flex-1 text-center md:py-12">
+          <div class="text-3xl font-bold md:text-5xl">8</div>
+          <div class="pt-2 text-gray-600 text-sm md:text-2xl">Por entregar</div>
         </div>
       </div>
     </ng-template>
@@ -19,10 +23,13 @@
 
   <p-card class="w-full mb-4">
     <ng-template pTemplate="title">
-      <h2 class="text-center font-medium">Escáner de código QR</h2>
+      <h2 class="text-center font-medium md:text-3xl">Escáner de código QR</h2>
     </ng-template>
-    <ng-template pTemplate="content">
-      <div class="flex justify-center mb-4 relative" *ngIf="!isScanning">
+    <ng-template pTemplate="content ">
+      <div
+        class="flex justify-center mb-4 relative md:pt-4"
+        *ngIf="!isScanning"
+      >
         <div class="relative w-48 h-48">
           <img
             src="../../../../assets/img/qrImg.png"
@@ -47,7 +54,7 @@
         <p-button
           (click)="startScanner()"
           *ngIf="!isScanning"
-          styleClass="mt-5 bg-gob-500"
+          styleClass="mt-5 bg-gob-500 md:text-xl px-4 py-2"
           >Iniciar Escaneo</p-button
         >
         <div

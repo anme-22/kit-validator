@@ -1,5 +1,5 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <div class="flex flex-col gap-2 p-4 w-full">
+  <div class="flex flex-col gap-2 p-4 w-full md:w-full md:gap-4">
     <label for="username" class="text-left font-semibold text-slate-500"
       >N° de identidad</label
     >
@@ -39,7 +39,7 @@
       <button
         type="button"
         (click)="togglePasswordVisibility()"
-        class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
+        class="text-gob-500 absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
       >
         <i [class]="showPassword ? 'pi pi-eye-slash' : 'pi pi-eye'"></i>
       </button>

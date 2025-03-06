@@ -1,0 +1,32 @@
+<div class="flex h-screen bg-gray-100">
+  <!-- Desktop Sidebar -->
+  <div
+    class="hidden md:block w-64 bg-white shadow-lg rounded-lg-panel border border-gray-200"
+  >
+    <div
+      class="p-4 flex items-center justify-center border-b bg-white rounded-t-lg"
+    >
+      <img src="../../../../assets/img/sis.png" alt="Logo" class="h-8" />
+      <h1 class="ml-2 text-xl font-semibold text-gob-700">Kit Validator</h1>
+    </div>
+    <div class="py-4">
+      <!-- Desktop Navigation Links -->
+      <div class="px-2">
+        <a
+          *ngFor="let item of items"
+          [routerLink]="item.routerLink"
+          [routerLinkActive]="item['routerLinkActive']"
+          [routerLinkActiveOptions]="item['routerLinkActiveOptions']"
+          class="flex items-center px-4 py-3 text-gob-700 hover:bg-gob-100 hover:text-white transition-colors rounded-md mb-1"
+        >
+          <i [class]="item.icon + ' text-xl mr-3'"></i>
+          <span>{{ item.label }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex-1 p-4">
+    <ng-content></ng-content>
+  </div>
+</div>
