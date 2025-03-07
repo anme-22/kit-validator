@@ -18,11 +18,6 @@
   border-color: #e24c4c;
 }
 
-.ng-dirty.ng-invalid:focus {
-  ring-color: #e24c4c;
-  ring-width: 2px;
-}
-
 @media (max-width: 640px) {
   .p-toast {
     max-width: 90%;
@@ -35,59 +30,83 @@
 
 /*DARK THEME SECTION START*/
 /* Tu archivo CSS (o SCSS) */
-
 body.dark-theme {
   background-color: #121212;
   color: #e0e0e0;
 }
 
 body.dark-theme .bg-white {
-  background-color: #121212; /* Tono oscuro para el verde */
-  color: #a7f3d0;
+  background-color: #121212;
+  color: #ffff;
 }
 
-body.dark-theme p-card {
-  background-color: #1f2937; /* Fondo oscuro para las tarjetas */
-  color: #e0e0e0;
-}
+body.dark-theme p-card,
 body.dark-theme .p-card {
-  background-color: #1f2937; /* Fondo oscuro para las tarjetas */
+  background-color: #282828; /* O #292929 o #1e2a3c */
   color: #e0e0e0;
+  border: 1px solid #374151;
 }
 
 body.dark-theme .bg-green-100 {
-  background-color: #1a362e; /* Tono oscuro para el verde */
+  background-color: #1a362e;
   color: #a7f3d0;
 }
 
 body.dark-theme .bg-purple-100 {
-  background-color: #2f1e3a; /* Tono oscuro para el morado */
+  background-color: #2f1e3a;
   color: #d8b4fe;
 }
 
 body.dark-theme .text-gray-600,
 body.dark-theme .text-gray-700 {
-  color: #a0a0a0; /* Textos grises más claros */
+  color: #a0a0a0;
 }
 
 body.dark-theme .bg-gray-100 {
-  background-color: #374151; /* Tono oscuro para el gris */
+  background-color: #374151;
   color: #d1d5db;
 }
 
 body.dark-theme .border-gob-500,
 body.dark-theme .text-gob-500 {
-  border-color: #9ca3af;
-  color: #9ca3af;
+  border-color: #6dd3e4;
+  color: #6dd3e4;
 }
 
 body.dark-theme .bg-gob-500 {
-  background-color: #4b5563;
+  background-color: #134e5e;
 }
 
 body.dark-theme .bg-red-500 {
   background-color: #9f1239;
 }
 
+body.dark-theme input {
+  background-color: #282828; /* O #292929 o #1e2a3c */
+  color: #e0e0e0;
+  border: 1px solid #374151;
+}
+body.dark-theme tr td {
+  background-color: #121212; /* O #292929 o #1e2a3c */
+  color: #e0e0e0;
+}
+body.dark-theme .p-paginator {
+  background-color: #121212;
+  color: white;
+}
+
+body.dark-theme .p-paginator .p-paginator-pages .p-paginator-page,
+.p-paginator .p-paginator-next,
+.p-paginator .p-paginator-prev {
+  background-color: #121212;
+  color: white;
+}
+
+.body.dark-theme .p-paginator .p-paginator-pages .p-paginator-page.p-highlight,
+.p-paginator .p-paginator-next.p-disabled,
+.p-paginator .p-paginator-prev.p-disabled {
+  background-color: #283149;
+  color: white;
+}
 /* Ajusta otros estilos según sea necesario */
 /*DARK THEME SECTION END*/

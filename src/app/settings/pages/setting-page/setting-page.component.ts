@@ -51,7 +51,7 @@ export class SettingPageComponent implements OnInit {
   }
 
   toggleTheme() {
-    this.themeService.setDarkMode(!this.isDarkMode); // Actualiza el servicio con el estado local
-    this.isDarkMode = this.themeService.isDark(); // Actualiza el estado local
+    this.themeService.setDarkMode(this.isDarkMode); // Actualiza el servicio con el estado local
+    //this.isDarkMode = this.themeService.isDark(); // Actualiza el estado local
   }
 }
